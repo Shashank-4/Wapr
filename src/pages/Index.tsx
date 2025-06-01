@@ -5,11 +5,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { Users, Star, MessageSquare, Contact, GalleryHorizontal, MessageSquareText } from 'lucide-react';
+import { Users, Star, MessageSquare, Contact, GalleryHorizontal, MessageSquareText, Code, Smartphone, TrendingUp, Palette, Globe, ShoppingCart, Database, Zap } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [hoveredService, setHoveredService] = useState<number | null>(null);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -50,76 +51,113 @@ const Index = () => {
 
   const services = [
     {
-      icon: <Users className="w-8 h-8" />,
+      icon: <Code className="w-8 h-8" />,
       title: "Web Development",
-      description: "Modern, responsive websites built with cutting-edge technologies"
+      description: "Cutting-edge web solutions with premium aesthetics",
+      subServices: [
+        { icon: <Globe className="w-5 h-5" />, name: "Custom Web Apps" },
+        { icon: <ShoppingCart className="w-5 h-5" />, name: "E-commerce Platforms" },
+        { icon: <Database className="w-5 h-5" />, name: "CMS Development" },
+        { icon: <Zap className="w-5 h-5" />, name: "Performance Optimization" }
+      ]
     },
     {
-      icon: <Contact className="w-8 h-8" />,
+      icon: <Smartphone className="w-8 h-8" />,
       title: "Mobile Apps",
-      description: "Native and cross-platform mobile applications"
+      description: "Native and cross-platform mobile experiences",
+      subServices: [
+        { icon: <Smartphone className="w-5 h-5" />, name: "iOS Development" },
+        { icon: <Smartphone className="w-5 h-5" />, name: "Android Development" },
+        { icon: <Code className="w-5 h-5" />, name: "React Native" },
+        { icon: <Zap className="w-5 h-5" />, name: "Flutter Apps" }
+      ]
     },
     {
-      icon: <MessageSquare className="w-8 h-8" />,
+      icon: <TrendingUp className="w-8 h-8" />,
       title: "Digital Marketing",
-      description: "Comprehensive marketing strategies to boost your reach"
+      description: "Strategic marketing to amplify your reach",
+      subServices: [
+        { icon: <TrendingUp className="w-5 h-5" />, name: "SEO Optimization" },
+        { icon: <MessageSquare className="w-5 h-5" />, name: "Social Media" },
+        { icon: <Star className="w-5 h-5" />, name: "Content Strategy" },
+        { icon: <Users className="w-5 h-5" />, name: "Influencer Marketing" }
+      ]
     },
     {
-      icon: <Star className="w-8 h-8" />,
+      icon: <Palette className="w-8 h-8" />,
       title: "Brand Strategy",
-      description: "Create compelling brand identities that resonate"
+      description: "Compelling brand identities that resonate",
+      subServices: [
+        { icon: <Palette className="w-5 h-5" />, name: "Logo Design" },
+        { icon: <Star className="w-5 h-5" />, name: "Brand Guidelines" },
+        { icon: <Globe className="w-5 h-5" />, name: "Visual Identity" },
+        { icon: <MessageSquare className="w-5 h-5" />, name: "Brand Messaging" }
+      ]
     }
   ];
 
   const projects = [
     {
-      title: "E-commerce Platform",
-      description: "Modern online shopping experience",
+      title: "Luxury E-commerce Platform",
+      description: "Premium shopping experience with advanced features",
       tech: ["React", "Node.js", "MongoDB"],
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop",
+      category: "E-commerce"
     },
     {
-      title: "Mobile Banking App",
-      description: "Secure and intuitive banking solution",
+      title: "FinTech Mobile Banking",
+      description: "Secure and intuitive financial solution",
       tech: ["React Native", "Firebase", "TypeScript"],
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
+      category: "FinTech"
     },
     {
-      title: "SaaS Dashboard",
-      description: "Analytics and management platform",
+      title: "Analytics Dashboard",
+      description: "Enterprise-grade data visualization platform",
       tech: ["Vue.js", "Python", "PostgreSQL"],
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop"
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
+      category: "SaaS"
     }
   ];
 
   const testimonials = [
     {
       name: "Sarah Johnson",
-      company: "TechStart Inc.",
-      content: "WAPR transformed our digital presence completely. Their team delivered beyond expectations!",
-      rating: 5
+      company: "Luxury Brands Inc.",
+      content: "WAPR exceeded our expectations with their premium approach to digital transformation. Outstanding quality and attention to detail.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=100&h=100&fit=crop&crop=face"
     },
     {
       name: "Michael Chen",
-      company: "GrowthCorp",
-      content: "Outstanding work on our mobile app. The user experience is phenomenal.",
-      rating: 5
+      company: "TechVentures",
+      content: "The mobile app they developed has revolutionized our business. Exceptional user experience and flawless execution.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
     },
     {
       name: "Emily Rodriguez",
       company: "InnovateHub",
-      content: "Professional, creative, and results-driven. Highly recommend WAPR!",
-      rating: 5
+      content: "Professional, creative, and results-driven. WAPR delivers luxury-grade solutions that truly make a difference.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-orange-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-orange-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}} />
+        <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-gradient-to-br from-orange-500/30 to-blue-500/30 rounded-full blur-2xl animate-pulse" style={{animationDelay: '4s'}} />
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b z-50 transition-all duration-300">
+      <nav className="fixed top-0 w-full bg-black/20 backdrop-blur-xl border-b border-white/10 z-50 transition-all duration-300">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">
+            <div className="text-3xl font-bold bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent">
               WAPR
             </div>
             <div className="hidden md:flex space-x-8">
@@ -127,13 +165,16 @@ const Index = () => {
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`capitalize transition-colors duration-200 ${
+                  className={`capitalize transition-all duration-300 relative ${
                     activeSection === section
-                      ? 'text-blue-600 font-semibold'
-                      : 'text-gray-600 hover:text-blue-600'
+                      ? 'text-orange-400 font-semibold'
+                      : 'text-white/80 hover:text-orange-400'
                   }`}
                 >
                   {section}
+                  {activeSection === section && (
+                    <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-orange-400 to-blue-400 rounded-full" />
+                  )}
                 </button>
               ))}
             </div>
@@ -142,34 +183,39 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-20 pb-16 px-6">
-        <div className="container mx-auto text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 bg-clip-text text-transparent">
-                Modern Digital
+      <section id="home" className="pt-32 pb-20 px-6 relative">
+        <div className="container mx-auto text-center relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-8 animate-fade-in">
+              <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
+                <span className="text-orange-400 font-medium">Premium Digital Solutions</span>
+              </div>
+            </div>
+            <h1 className="text-6xl md:text-8xl font-bold mb-8 animate-fade-in leading-tight">
+              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent">
+                Luxury
               </span>
               <br />
-              <span className="text-gray-800">Solutions</span>
+              <span className="text-white">Digital Experiences</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 animate-fade-in" style={{animationDelay: '0.2s'}}>
-              We build stunning websites, powerful mobile apps, and drive growth through strategic marketing
+            <p className="text-xl text-white/80 mb-12 animate-fade-in max-w-3xl mx-auto leading-relaxed" style={{animationDelay: '0.2s'}}>
+              We craft exceptional websites, powerful mobile applications, and strategic marketing campaigns that elevate your brand to new heights of digital excellence.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: '0.4s'}}>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in" style={{animationDelay: '0.4s'}}>
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-200"
+                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-orange-500/25"
                 onClick={() => scrollToSection('projects')}
               >
-                View Our Work
+                Explore Our Work
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white transform hover:scale-105 transition-all duration-200"
+                className="border-2 border-blue-400/50 text-blue-400 hover:bg-blue-400/10 hover:border-blue-400 font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm"
                 onClick={() => scrollToSection('contact')}
               >
-                Get Started
+                Start Your Project
               </Button>
             </div>
           </div>
@@ -177,31 +223,51 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Comprehensive digital solutions to elevate your business
+      <section id="services" className="py-24 relative">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500/20 to-orange-500/20 rounded-full border border-blue-500/30 backdrop-blur-sm mb-6">
+              <span className="text-blue-400 font-medium">Our Expertise</span>
+            </div>
+            <h2 className="text-5xl font-bold text-white mb-6">Premium Services</h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+              Comprehensive digital solutions crafted with precision and elegance
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <Card 
                 key={index} 
-                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-md hover:shadow-blue-100"
+                className="group relative bg-black/30 backdrop-blur-xl border border-white/10 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 overflow-hidden"
+                onMouseEnter={() => setHoveredService(index)}
+                onMouseLeave={() => setHoveredService(null)}
               >
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-orange-500 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <CardHeader className="text-center relative z-10 pb-4">
+                  <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-blue-500 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500 shadow-lg">
                     {service.icon}
                   </div>
-                  <CardTitle className="text-gray-800">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-center text-gray-600">
+                  <CardTitle className="text-white text-xl mb-3">{service.title}</CardTitle>
+                  <CardDescription className="text-white/70 text-sm leading-relaxed">
                     {service.description}
                   </CardDescription>
-                </CardContent>
+                </CardHeader>
+                
+                {/* Sub-services dropdown */}
+                <div className={`absolute top-full left-0 right-0 bg-black/90 backdrop-blur-xl border border-white/20 rounded-b-xl transition-all duration-500 ${
+                  hoveredService === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+                }`}>
+                  <div className="p-4 space-y-3">
+                    {service.subServices.map((subService, subIndex) => (
+                      <div key={subIndex} className="flex items-center space-x-3 text-white/80 hover:text-orange-400 transition-colors duration-200 cursor-pointer">
+                        <div className="text-orange-400">
+                          {subService.icon}
+                        </div>
+                        <span className="text-sm font-medium">{subService.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </Card>
             ))}
           </div>
@@ -209,40 +275,48 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Projects</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Showcasing our latest work and success stories
+      <section id="projects" className="py-24 relative">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
+              <span className="text-orange-400 font-medium">Portfolio</span>
+            </div>
+            <h2 className="text-5xl font-bold text-white mb-6">Exceptional Projects</h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+              Showcasing our finest work and digital masterpieces
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <Card 
                 key={index} 
-                className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="group overflow-hidden bg-black/30 backdrop-blur-xl border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20"
               >
                 <div className="relative overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <GalleryHorizontal className="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                  <div className="absolute top-4 right-4">
+                    <Badge className="bg-gradient-to-r from-orange-500 to-blue-500 text-white border-0">
+                      {project.category}
+                    </Badge>
+                  </div>
+                  <GalleryHorizontal className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-gray-800">{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-white text-xl">{project.title}</CardTitle>
+                  <CardDescription className="text-white/70">{project.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-0">
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech, techIndex) => (
                       <Badge 
                         key={techIndex} 
                         variant="secondary"
-                        className="bg-gradient-to-r from-blue-100 to-orange-100 text-blue-700"
+                        className="bg-white/10 text-white/80 border border-white/20 hover:bg-white/20 transition-colors duration-200"
                       >
                         {tech}
                       </Badge>
@@ -256,34 +330,44 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Trusted by businesses worldwide
+      <section id="testimonials" className="py-24 relative">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500/20 to-orange-500/20 rounded-full border border-blue-500/30 backdrop-blur-sm mb-6">
+              <span className="text-blue-400 font-medium">Testimonials</span>
+            </div>
+            <h2 className="text-5xl font-bold text-white mb-6">Client Excellence</h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+              Trusted by industry leaders worldwide
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <Card 
                 key={index} 
-                className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="bg-black/30 backdrop-blur-xl border border-white/10 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10"
               >
-                <CardHeader>
-                  <div className="flex items-center space-x-1 mb-2">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center space-x-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-5 h-5 fill-orange-400 text-orange-400" />
                     ))}
                   </div>
-                  <CardDescription className="text-gray-700 italic">
+                  <CardDescription className="text-white/80 italic text-base leading-relaxed">
                     "{testimonial.content}"
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="border-t pt-4">
-                    <p className="font-semibold text-gray-800">{testimonial.name}</p>
-                    <p className="text-sm text-gray-600">{testimonial.company}</p>
+                  <div className="flex items-center space-x-4">
+                    <img 
+                      src={testimonial.avatar} 
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover border-2 border-orange-400/50"
+                    />
+                    <div>
+                      <p className="font-semibold text-white">{testimonial.name}</p>
+                      <p className="text-sm text-white/60">{testimonial.company}</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -293,46 +377,65 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-blue-600 to-orange-500">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-4">Get In Touch</h2>
-              <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                Ready to start your next project? Let's discuss how we can help you grow.
+      <section id="contact" className="py-24 relative">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-20">
+              <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
+                <span className="text-orange-400 font-medium">Get In Touch</span>
+              </div>
+              <h2 className="text-5xl font-bold text-white mb-6">Start Your Journey</h2>
+              <p className="text-xl text-white/70 max-w-3xl mx-auto">
+                Ready to elevate your digital presence? Let's create something extraordinary together.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-12">
               <div className="text-white">
-                <h3 className="text-2xl font-semibold mb-6">Let's Build Something Amazing</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <MessageSquareText className="w-5 h-5 text-orange-200" />
-                    <span>hello@wapr.agency</span>
+                <h3 className="text-2xl font-semibold mb-8 text-orange-400">Let's Build Excellence</h3>
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-blue-500 rounded-xl flex items-center justify-center">
+                      <MessageSquareText className="w-6 h-6 text-white" />
+                    </div>
+                    <span className="text-lg">hello@wapr.agency</span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <Contact className="w-5 h-5 text-orange-200" />
-                    <span>+1 (555) 123-4567</span>
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-orange-500 rounded-xl flex items-center justify-center">
+                      <Contact className="w-6 h-6 text-white" />
+                    </div>
+                    <span className="text-lg">+1 (555) 123-4567</span>
                   </div>
                 </div>
-                <div className="mt-8">
-                  <h4 className="font-semibold mb-4">Why Choose WAPR?</h4>
-                  <ul className="space-y-2 text-blue-100">
-                    <li>• Expert development team</li>
-                    <li>• Modern technology stack</li>
-                    <li>• Results-driven approach</li>
-                    <li>• 24/7 support</li>
+                <div className="mt-12">
+                  <h4 className="font-semibold mb-6 text-xl text-blue-400">Why Choose WAPR?</h4>
+                  <ul className="space-y-4 text-white/80">
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      <span>Premium development expertise</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full" />
+                      <span>Cutting-edge technology stack</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      <span>Results-driven methodology</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full" />
+                      <span>24/7 dedicated support</span>
+                    </li>
                   </ul>
                 </div>
               </div>
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20">
-                <CardContent className="p-6">
-                  <form onSubmit={handleContactSubmit} className="space-y-4">
+              <Card className="bg-black/30 backdrop-blur-xl border border-white/20">
+                <CardContent className="p-8">
+                  <form onSubmit={handleContactSubmit} className="space-y-6">
                     <div>
                       <Input 
                         placeholder="Your Name" 
                         required 
-                        className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:bg-white/30"
+                        className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20 focus:border-orange-400 h-12 rounded-xl"
                       />
                     </div>
                     <div>
@@ -340,20 +443,20 @@ const Index = () => {
                         type="email" 
                         placeholder="Your Email" 
                         required 
-                        className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:bg-white/30"
+                        className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20 focus:border-orange-400 h-12 rounded-xl"
                       />
                     </div>
                     <div>
                       <Textarea 
-                        placeholder="Tell us about your project..." 
+                        placeholder="Tell us about your project vision..." 
                         required 
                         rows={4}
-                        className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:bg-white/30"
+                        className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20 focus:border-orange-400 rounded-xl resize-none"
                       />
                     </div>
                     <Button 
                       type="submit" 
-                      className="w-full bg-white text-blue-600 hover:bg-gray-100 transform hover:scale-105 transition-all duration-200"
+                      className="w-full bg-gradient-to-r from-orange-500 to-blue-500 hover:from-orange-600 hover:to-blue-600 text-white font-semibold h-12 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg"
                     >
                       Send Message
                     </Button>
@@ -366,13 +469,13 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
+      <footer className="bg-black/40 backdrop-blur-xl border-t border-white/10 text-white py-12 relative z-10">
         <div className="container mx-auto px-6 text-center">
-          <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent mb-4">
+          <div className="text-3xl font-bold bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent mb-6">
             WAPR
           </div>
-          <p className="text-gray-400">
-            © 2024 WAPR. Building the future, one project at a time.
+          <p className="text-white/60 text-lg">
+            © 2024 WAPR. Crafting digital excellence, one project at a time.
           </p>
         </div>
       </footer>
