@@ -1,16 +1,16 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { Users, Star, MessageSquare, Contact, GalleryHorizontal, MessageSquareText, Code, Smartphone, TrendingUp, Palette, Globe, ShoppingCart, Database, Zap } from 'lucide-react';
+import { Users, Star, MessageSquare, Contact, GalleryHorizontal, MessageSquareText, Code, Smartphone, TrendingUp, Palette, Globe, ShoppingCart, Database, Zap, Menu, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [hoveredService, setHoveredService] = useState<number | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -39,6 +39,7 @@ const Index = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setMobileMenuOpen(false);
   };
 
   const handleContactSubmit = (e: React.FormEvent) => {
@@ -153,28 +154,58 @@ const Index = () => {
         <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-gradient-to-br from-orange-500/30 to-blue-500/30 rounded-full blur-2xl animate-pulse" style={{animationDelay: '4s'}} />
       </div>
 
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-black/20 backdrop-blur-xl border-b border-white/10 z-50 transition-all duration-300">
-        <div className="container mx-auto px-6 py-4">
+      {/* Modern Navigation */}
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-7xl bg-black/10 backdrop-blur-2xl border border-white/10 rounded-2xl z-50 transition-all duration-500 shadow-2xl shadow-black/20">
+        <div className="px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-3xl font-bold bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent">
-              WAPR
+            <div className="text-3xl font-bold">
+              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent">
+                WAPR
+              </span>
             </div>
-            <div className="hidden md:flex space-x-8">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-1 bg-white/5 rounded-full p-1 backdrop-blur-sm border border-white/10">
               {['home', 'services', 'projects', 'testimonials', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`capitalize transition-all duration-300 relative ${
+                  className={`capitalize px-6 py-2 rounded-full transition-all duration-300 relative overflow-hidden ${
                     activeSection === section
-                      ? 'text-orange-400 font-semibold'
-                      : 'text-white/80 hover:text-orange-400'
+                      ? 'bg-gradient-to-r from-orange-500 to-blue-500 text-white font-semibold shadow-lg'
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
                   }`}
                 >
                   {section}
-                  {activeSection === section && (
-                    <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-orange-400 to-blue-400 rounded-full" />
-                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors duration-300"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className={`md:hidden overflow-hidden transition-all duration-500 ${
+            mobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
+          }`}>
+            <div className="bg-white/5 rounded-2xl p-4 backdrop-blur-sm border border-white/10">
+              {['home', 'services', 'projects', 'testimonials', 'contact'].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`capitalize w-full text-left px-4 py-3 rounded-xl transition-all duration-300 block ${
+                    activeSection === section
+                      ? 'bg-gradient-to-r from-orange-500 to-blue-500 text-white font-semibold'
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
+                  }`}
+                >
+                  {section}
                 </button>
               ))}
             </div>
@@ -182,41 +213,79 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="pt-32 pb-20 px-6 relative">
+      {/* Enhanced Hero Section with Graphics */}
+      <section id="home" className="pt-40 pb-20 px-6 relative">
         <div className="container mx-auto text-center relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="mb-8 animate-fade-in">
-              <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
-                <span className="text-orange-400 font-medium">Premium Digital Solutions</span>
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="text-left lg:text-left">
+              <div className="mb-8 animate-fade-in">
+                <div className="inline-block px-6 py-3 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-8">
+                  <span className="text-orange-400 font-medium flex items-center">
+                    <Star className="w-4 h-4 mr-2" />
+                    Premium Digital Solutions
+                  </span>
+                </div>
+              </div>
+              <h1 className="text-6xl md:text-7xl xl:text-8xl font-bold mb-8 animate-fade-in leading-tight">
+                <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent">
+                  Luxury
+                </span>
+                <br />
+                <span className="text-white">Digital</span>
+                <br />
+                <span className="text-white/90">Experiences</span>
+              </h1>
+              <p className="text-xl text-white/80 mb-12 animate-fade-in max-w-2xl leading-relaxed" style={{animationDelay: '0.2s'}}>
+                We craft exceptional websites, powerful mobile applications, and strategic marketing campaigns that elevate your brand to new heights of digital excellence.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-orange-500/25"
+                  onClick={() => scrollToSection('projects')}
+                >
+                  Explore Our Work
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-2 border-blue-400/50 text-blue-400 hover:bg-blue-400/10 hover:border-blue-400 font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm"
+                  onClick={() => scrollToSection('contact')}
+                >
+                  Start Your Project
+                </Button>
               </div>
             </div>
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 animate-fade-in leading-tight">
-              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent">
-                Luxury
-              </span>
-              <br />
-              <span className="text-white">Digital Experiences</span>
-            </h1>
-            <p className="text-xl text-white/80 mb-12 animate-fade-in max-w-3xl mx-auto leading-relaxed" style={{animationDelay: '0.2s'}}>
-              We craft exceptional websites, powerful mobile applications, and strategic marketing campaigns that elevate your brand to new heights of digital excellence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in" style={{animationDelay: '0.4s'}}>
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-orange-500/25"
-                onClick={() => scrollToSection('projects')}
-              >
-                Explore Our Work
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-blue-400/50 text-blue-400 hover:bg-blue-400/10 hover:border-blue-400 font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm"
-                onClick={() => scrollToSection('contact')}
-              >
-                Start Your Project
-              </Button>
+
+            {/* Right Graphics */}
+            <div className="relative animate-fade-in" style={{animationDelay: '0.6s'}}>
+              {/* Main Hero Image */}
+              <div className="relative z-10">
+                <img 
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&crop=center" 
+                  alt="Modern web development workspace"
+                  className="w-full h-auto rounded-3xl shadow-2xl shadow-black/50 border border-white/10"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-3xl" />
+              </div>
+
+              {/* Floating Elements */}
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-orange-500/30 to-blue-500/30 rounded-2xl backdrop-blur-sm border border-white/20 flex items-center justify-center animate-float">
+                <Code className="w-12 h-12 text-white" />
+              </div>
+              
+              <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-gradient-to-br from-blue-500/30 to-orange-500/30 rounded-xl backdrop-blur-sm border border-white/20 flex items-center justify-center animate-float" style={{animationDelay: '2s'}}>
+                <Smartphone className="w-8 h-8 text-white" />
+              </div>
+
+              <div className="absolute top-1/2 -right-6 w-20 h-20 bg-gradient-to-br from-orange-400/40 to-blue-400/40 rounded-full backdrop-blur-sm border border-white/20 flex items-center justify-center animate-float" style={{animationDelay: '4s'}}>
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+
+              {/* Decorative Background Elements */}
+              <div className="absolute -z-10 top-20 left-20 w-40 h-40 bg-gradient-to-br from-orange-500/20 to-transparent rounded-full blur-2xl" />
+              <div className="absolute -z-10 bottom-20 right-20 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-transparent rounded-full blur-2xl" />
             </div>
           </div>
         </div>
