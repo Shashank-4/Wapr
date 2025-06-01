@@ -324,8 +324,8 @@ const Index = () => {
                   </CardHeader>
                 </Card>
                 
-                {/* Enhanced Sub-services Card */}
-                <div className={`absolute top-full left-0 right-0 mt-2 transition-all duration-500 z-50 ${
+                {/* Enhanced Sub-services Card with higher z-index */}
+                <div className={`absolute top-full left-0 right-0 mt-2 transition-all duration-500 z-[100] ${
                   hoveredService === index 
                     ? 'opacity-100 translate-y-0 pointer-events-auto' 
                     : 'opacity-0 translate-y-4 pointer-events-none'
