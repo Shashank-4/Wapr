@@ -291,7 +291,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Enhanced Services Section */}
       <section id="services" className="py-24 relative">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
@@ -305,39 +305,54 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <Card 
-                key={index} 
-                className="group relative bg-black/30 backdrop-blur-xl border border-white/10 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 overflow-hidden"
+              <div 
+                key={index}
+                className="relative"
                 onMouseEnter={() => setHoveredService(index)}
                 onMouseLeave={() => setHoveredService(null)}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <CardHeader className="text-center relative z-10 pb-4">
-                  <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-blue-500 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500 shadow-lg">
-                    {service.icon}
-                  </div>
-                  <CardTitle className="text-white text-xl mb-3">{service.title}</CardTitle>
-                  <CardDescription className="text-white/70 text-sm leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
+                <Card className={`group relative bg-black/30 backdrop-blur-xl border border-white/10 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 overflow-visible ${hoveredService === index ? 'transform -translate-y-2' : ''}`}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <CardHeader className="text-center relative z-10 pb-4">
+                    <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-blue-500 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500 shadow-lg">
+                      {service.icon}
+                    </div>
+                    <CardTitle className="text-white text-xl mb-3">{service.title}</CardTitle>
+                    <CardDescription className="text-white/70 text-sm leading-relaxed">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
                 
-                {/* Sub-services dropdown */}
-                <div className={`absolute top-full left-0 right-0 bg-black/90 backdrop-blur-xl border border-white/20 rounded-b-xl transition-all duration-500 ${
-                  hoveredService === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+                {/* Enhanced Sub-services Card */}
+                <div className={`absolute top-full left-0 right-0 mt-2 transition-all duration-500 z-50 ${
+                  hoveredService === index 
+                    ? 'opacity-100 translate-y-0 pointer-events-auto' 
+                    : 'opacity-0 translate-y-4 pointer-events-none'
                 }`}>
-                  <div className="p-4 space-y-3">
-                    {service.subServices.map((subService, subIndex) => (
-                      <div key={subIndex} className="flex items-center space-x-3 text-white/80 hover:text-orange-400 transition-colors duration-200 cursor-pointer">
-                        <div className="text-orange-400">
-                          {subService.icon}
-                        </div>
-                        <span className="text-sm font-medium">{subService.name}</span>
+                  <Card className="bg-black/95 backdrop-blur-xl border border-orange-500/30 shadow-2xl shadow-orange-500/20">
+                    <CardContent className="p-6">
+                      <h4 className="text-orange-400 font-semibold mb-4 text-center">Specialized Services</h4>
+                      <div className="space-y-3">
+                        {service.subServices.map((subService, subIndex) => (
+                          <div 
+                            key={subIndex} 
+                            className="flex items-center space-x-3 text-white/80 hover:text-orange-400 transition-colors duration-200 cursor-pointer group/sub p-2 rounded-lg hover:bg-white/5"
+                          >
+                            <div className="text-orange-400 group-hover/sub:scale-110 transition-transform duration-200">
+                              {subService.icon}
+                            </div>
+                            <span className="text-sm font-medium">{subService.name}</span>
+                            <div className="ml-auto opacity-0 group-hover/sub:opacity-100 transition-opacity duration-200">
+                              <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    </CardContent>
+                  </Card>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         </div>
