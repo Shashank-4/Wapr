@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -206,36 +207,36 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Enhanced Hero Section with Original Design */}
-      <section id="home" className="pt-40 pb-20 px-6 relative overflow-hidden bg-gradient-to-br from-orange-400 via-red-400 to-orange-500">
+      {/* Enhanced Hero Section with White Background */}
+      <section id="home" className="pt-40 pb-20 px-6 relative overflow-hidden bg-white">
         <div className="container mx-auto text-center relative z-10">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="text-left lg:text-left">
               <div className="mb-8 animate-fade-in">
-                <div className="inline-block px-6 py-3 bg-white/20 rounded-full border border-white/30 backdrop-blur-sm mb-8">
-                  <span className="text-white font-medium flex items-center">
+                <div className="inline-block px-6 py-3 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-8">
+                  <span className="text-orange-600 font-medium flex items-center">
                     <Star className="w-4 h-4 mr-2" />
                     Premium Digital Solutions
                   </span>
                 </div>
               </div>
               <h1 className="text-6xl md:text-7xl xl:text-8xl font-bold mb-8 animate-fade-in leading-tight">
-                <span className="text-white">
+                <span className="text-gray-900">
                   Luxury
                 </span>
                 <br />
-                <span className="text-white">Digital</span>
+                <span className="text-gray-900">Digital</span>
                 <br />
-                <span className="text-white/90">Experiences</span>
+                <span className="text-gray-700">Experiences</span>
               </h1>
-              <p className="text-xl text-white/90 mb-12 animate-fade-in max-w-2xl leading-relaxed" style={{animationDelay: '0.2s'}}>
+              <p className="text-xl text-gray-600 mb-12 animate-fade-in max-w-2xl leading-relaxed" style={{animationDelay: '0.2s'}}>
                 We craft exceptional websites, powerful mobile applications, and strategic marketing campaigns that elevate your brand to new heights of digital excellence.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
                 <Button 
                   size="lg" 
-                  className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-2xl border border-white/30"
+                  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
                   onClick={() => scrollToSection('projects')}
                 >
                   Explore Our Work
@@ -243,7 +244,7 @@ const Index = () => {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-2 border-white/50 text-white hover:bg-white/20 hover:border-white font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm"
+                  className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 hover:border-orange-600 font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300"
                   onClick={() => scrollToSection('contact')}
                 >
                   Start Your Project
@@ -258,22 +259,22 @@ const Index = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&crop=center" 
                   alt="Modern web development workspace"
-                  className="w-full h-auto rounded-3xl shadow-2xl shadow-black/30 border border-white/20"
+                  className="w-full h-auto rounded-3xl shadow-2xl shadow-black/30 border border-gray-200"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-3xl" />
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 flex items-center justify-center animate-float">
-                <Code className="w-12 h-12 text-white" />
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-2xl border border-orange-500/30 flex items-center justify-center animate-float">
+                <Code className="w-12 h-12 text-orange-600" />
               </div>
               
-              <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-white/20 backdrop-blur-sm rounded-xl border border-white/30 flex items-center justify-center animate-float" style={{animationDelay: '2s'}}>
-                <Smartphone className="w-8 h-8 text-white" />
+              <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-gradient-to-br from-red-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl border border-red-500/30 flex items-center justify-center animate-float" style={{animationDelay: '2s'}}>
+                <Smartphone className="w-8 h-8 text-red-600" />
               </div>
 
-              <div className="absolute top-1/2 -right-6 w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 flex items-center justify-center animate-float" style={{animationDelay: '4s'}}>
-                <TrendingUp className="w-6 h-6 text-white" />
+              <div className="absolute top-1/2 -right-6 w-20 h-20 bg-gradient-to-br from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-full border border-orange-500/30 flex items-center justify-center animate-float" style={{animationDelay: '4s'}}>
+                <TrendingUp className="w-6 h-6 text-orange-600" />
               </div>
             </div>
           </div>
