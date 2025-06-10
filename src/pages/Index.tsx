@@ -206,12 +206,8 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Enhanced Hero Section with Gradient Background */}
-      <section id="home" className="pt-40 pb-20 px-6 relative overflow-hidden">
-        {/* Gradient Background matching the reference image */}
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-400 via-red-400 to-orange-500" />
-        <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 via-transparent to-transparent" />
-        
+      {/* Enhanced Hero Section with Original Design */}
+      <section id="home" className="pt-40 pb-20 px-6 relative overflow-hidden bg-gradient-to-br from-orange-400 via-red-400 to-orange-500">
         <div className="container mx-auto text-center relative z-10">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -318,7 +314,7 @@ const Index = () => {
                 </Card>
                 
                 {/* Enhanced Sub-services Card with higher z-index */}
-                <div className={`absolute top-full left-0 right-0 mt-2 transition-all duration-500 z-[100] ${
+                <div className={`absolute top-full left-0 right-0 mt-2 transition-all duration-500 z-[200] ${
                   hoveredService === index 
                     ? 'opacity-100 translate-y-0 pointer-events-auto' 
                     : 'opacity-0 translate-y-4 pointer-events-none'
