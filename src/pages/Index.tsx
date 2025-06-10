@@ -146,34 +146,27 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-orange-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-orange-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}} />
-        <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-gradient-to-br from-orange-500/30 to-blue-500/30 rounded-full blur-2xl animate-pulse" style={{animationDelay: '4s'}} />
-      </div>
-
+    <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Modern Navigation */}
-      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-7xl bg-black/10 backdrop-blur-2xl border border-white/10 rounded-2xl z-50 transition-all duration-500 shadow-2xl shadow-black/20">
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-7xl bg-white/90 backdrop-blur-2xl border border-gray-200 rounded-2xl z-50 transition-all duration-500 shadow-lg">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="text-3xl font-bold">
-              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-500 via-red-500 to-orange-600 bg-clip-text text-transparent">
                 WAPR
               </span>
             </div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1 bg-white/5 rounded-full p-1 backdrop-blur-sm border border-white/10">
+            <div className="hidden md:flex items-center space-x-1 bg-gray-100 rounded-full p-1 backdrop-blur-sm border border-gray-200">
               {['home', 'services', 'projects', 'testimonials', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
                   className={`capitalize px-6 py-2 rounded-full transition-all duration-300 relative overflow-hidden ${
                     activeSection === section
-                      ? 'bg-gradient-to-r from-orange-500 to-blue-500 text-white font-semibold shadow-lg'
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
+                      ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold shadow-lg'
+                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200'
                   }`}
                 >
                   {section}
@@ -184,7 +177,7 @@ const Index = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors duration-300"
+              className="md:hidden p-2 rounded-xl bg-gray-100 border border-gray-200 text-gray-700 hover:bg-gray-200 transition-colors duration-300"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -194,15 +187,15 @@ const Index = () => {
           <div className={`md:hidden overflow-hidden transition-all duration-500 ${
             mobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
           }`}>
-            <div className="bg-white/5 rounded-2xl p-4 backdrop-blur-sm border border-white/10">
+            <div className="bg-gray-50 rounded-2xl p-4 backdrop-blur-sm border border-gray-200">
               {['home', 'services', 'projects', 'testimonials', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
                   className={`capitalize w-full text-left px-4 py-3 rounded-xl transition-all duration-300 block ${
                     activeSection === section
-                      ? 'bg-gradient-to-r from-orange-500 to-blue-500 text-white font-semibold'
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
+                      ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold'
+                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200'
                   }`}
                 >
                   {section}
@@ -213,22 +206,26 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Enhanced Hero Section with Graphics */}
-      <section id="home" className="pt-40 pb-20 px-6 relative">
+      {/* Enhanced Hero Section with Gradient Background */}
+      <section id="home" className="pt-40 pb-20 px-6 relative overflow-hidden">
+        {/* Gradient Background matching the reference image */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-400 via-red-400 to-orange-500" />
+        <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 via-transparent to-transparent" />
+        
         <div className="container mx-auto text-center relative z-10">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="text-left lg:text-left">
               <div className="mb-8 animate-fade-in">
-                <div className="inline-block px-6 py-3 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-8">
-                  <span className="text-orange-400 font-medium flex items-center">
+                <div className="inline-block px-6 py-3 bg-white/20 rounded-full border border-white/30 backdrop-blur-sm mb-8">
+                  <span className="text-white font-medium flex items-center">
                     <Star className="w-4 h-4 mr-2" />
                     Premium Digital Solutions
                   </span>
                 </div>
               </div>
               <h1 className="text-6xl md:text-7xl xl:text-8xl font-bold mb-8 animate-fade-in leading-tight">
-                <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent">
+                <span className="text-white">
                   Luxury
                 </span>
                 <br />
@@ -236,13 +233,13 @@ const Index = () => {
                 <br />
                 <span className="text-white/90">Experiences</span>
               </h1>
-              <p className="text-xl text-white/80 mb-12 animate-fade-in max-w-2xl leading-relaxed" style={{animationDelay: '0.2s'}}>
+              <p className="text-xl text-white/90 mb-12 animate-fade-in max-w-2xl leading-relaxed" style={{animationDelay: '0.2s'}}>
                 We craft exceptional websites, powerful mobile applications, and strategic marketing campaigns that elevate your brand to new heights of digital excellence.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-orange-500/25"
+                  className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-2xl border border-white/30"
                   onClick={() => scrollToSection('projects')}
                 >
                   Explore Our Work
@@ -250,7 +247,7 @@ const Index = () => {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-2 border-blue-400/50 text-blue-400 hover:bg-blue-400/10 hover:border-blue-400 font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm"
+                  className="border-2 border-white/50 text-white hover:bg-white/20 hover:border-white font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 backdrop-blur-sm"
                   onClick={() => scrollToSection('contact')}
                 >
                   Start Your Project
@@ -265,41 +262,37 @@ const Index = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&crop=center" 
                   alt="Modern web development workspace"
-                  className="w-full h-auto rounded-3xl shadow-2xl shadow-black/50 border border-white/10"
+                  className="w-full h-auto rounded-3xl shadow-2xl shadow-black/30 border border-white/20"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-3xl" />
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-orange-500/30 to-blue-500/30 rounded-2xl backdrop-blur-sm border border-white/20 flex items-center justify-center animate-float">
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 flex items-center justify-center animate-float">
                 <Code className="w-12 h-12 text-white" />
               </div>
               
-              <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-gradient-to-br from-blue-500/30 to-orange-500/30 rounded-xl backdrop-blur-sm border border-white/20 flex items-center justify-center animate-float" style={{animationDelay: '2s'}}>
+              <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-white/20 backdrop-blur-sm rounded-xl border border-white/30 flex items-center justify-center animate-float" style={{animationDelay: '2s'}}>
                 <Smartphone className="w-8 h-8 text-white" />
               </div>
 
-              <div className="absolute top-1/2 -right-6 w-20 h-20 bg-gradient-to-br from-orange-400/40 to-blue-400/40 rounded-full backdrop-blur-sm border border-white/20 flex items-center justify-center animate-float" style={{animationDelay: '4s'}}>
+              <div className="absolute top-1/2 -right-6 w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 flex items-center justify-center animate-float" style={{animationDelay: '4s'}}>
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-
-              {/* Decorative Background Elements */}
-              <div className="absolute -z-10 top-20 left-20 w-40 h-40 bg-gradient-to-br from-orange-500/20 to-transparent rounded-full blur-2xl" />
-              <div className="absolute -z-10 bottom-20 right-20 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-transparent rounded-full blur-2xl" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Enhanced Services Section */}
-      <section id="services" className="py-24 relative">
+      <section id="services" className="py-24 relative bg-gray-50">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500/20 to-orange-500/20 rounded-full border border-blue-500/30 backdrop-blur-sm mb-6">
-              <span className="text-blue-400 font-medium">Our Expertise</span>
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
+              <span className="text-orange-600 font-medium">Our Expertise</span>
             </div>
-            <h2 className="text-5xl font-bold text-white mb-6">Premium Services</h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">Premium Services</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive digital solutions crafted with precision and elegance
             </p>
           </div>
@@ -311,14 +304,14 @@ const Index = () => {
                 onMouseEnter={() => setHoveredService(index)}
                 onMouseLeave={() => setHoveredService(null)}
               >
-                <Card className={`group relative bg-black/30 backdrop-blur-xl border border-white/10 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 overflow-visible ${hoveredService === index ? 'transform -translate-y-2' : ''}`}>
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <Card className={`group relative bg-white backdrop-blur-xl border border-gray-200 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 overflow-visible ${hoveredService === index ? 'transform -translate-y-2' : ''}`}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <CardHeader className="text-center relative z-10 pb-4">
-                    <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-blue-500 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500 shadow-lg">
+                    <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500 shadow-lg">
                       {service.icon}
                     </div>
-                    <CardTitle className="text-white text-xl mb-3">{service.title}</CardTitle>
-                    <CardDescription className="text-white/70 text-sm leading-relaxed">
+                    <CardTitle className="text-gray-900 text-xl mb-3">{service.title}</CardTitle>
+                    <CardDescription className="text-gray-600 text-sm leading-relaxed">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
@@ -330,21 +323,21 @@ const Index = () => {
                     ? 'opacity-100 translate-y-0 pointer-events-auto' 
                     : 'opacity-0 translate-y-4 pointer-events-none'
                 }`}>
-                  <Card className="bg-black/95 backdrop-blur-xl border border-orange-500/30 shadow-2xl shadow-orange-500/20">
+                  <Card className="bg-white/95 backdrop-blur-xl border border-orange-500/30 shadow-2xl shadow-orange-500/20">
                     <CardContent className="p-6">
-                      <h4 className="text-orange-400 font-semibold mb-4 text-center">Specialized Services</h4>
+                      <h4 className="text-orange-600 font-semibold mb-4 text-center">Specialized Services</h4>
                       <div className="space-y-3">
                         {service.subServices.map((subService, subIndex) => (
                           <div 
                             key={subIndex} 
-                            className="flex items-center space-x-3 text-white/80 hover:text-orange-400 transition-colors duration-200 cursor-pointer group/sub p-2 rounded-lg hover:bg-white/5"
+                            className="flex items-center space-x-3 text-gray-600 hover:text-orange-600 transition-colors duration-200 cursor-pointer group/sub p-2 rounded-lg hover:bg-orange-50"
                           >
-                            <div className="text-orange-400 group-hover/sub:scale-110 transition-transform duration-200">
+                            <div className="text-orange-600 group-hover/sub:scale-110 transition-transform duration-200">
                               {subService.icon}
                             </div>
                             <span className="text-sm font-medium">{subService.name}</span>
                             <div className="ml-auto opacity-0 group-hover/sub:opacity-100 transition-opacity duration-200">
-                              <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                              <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
                             </div>
                           </div>
                         ))}
@@ -359,14 +352,14 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-24 relative">
+      <section id="projects" className="py-24 relative bg-white">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
-              <span className="text-orange-400 font-medium">Portfolio</span>
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
+              <span className="text-orange-600 font-medium">Portfolio</span>
             </div>
-            <h2 className="text-5xl font-bold text-white mb-6">Exceptional Projects</h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">Exceptional Projects</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Showcasing our finest work and digital masterpieces
             </p>
           </div>
@@ -374,7 +367,7 @@ const Index = () => {
             {projects.map((project, index) => (
               <Card 
                 key={index} 
-                className="group overflow-hidden bg-black/30 backdrop-blur-xl border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20"
+                className="group overflow-hidden bg-white backdrop-blur-xl border border-gray-200 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20"
               >
                 <div className="relative overflow-hidden">
                   <img 
@@ -384,15 +377,15 @@ const Index = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
                   <div className="absolute top-4 right-4">
-                    <Badge className="bg-gradient-to-r from-orange-500 to-blue-500 text-white border-0">
+                    <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0">
                       {project.category}
                     </Badge>
                   </div>
                   <GalleryHorizontal className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-white text-xl">{project.title}</CardTitle>
-                  <CardDescription className="text-white/70">{project.description}</CardDescription>
+                  <CardTitle className="text-gray-900 text-xl">{project.title}</CardTitle>
+                  <CardDescription className="text-gray-600">{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="pt-0">
                   <div className="flex flex-wrap gap-2">
@@ -400,7 +393,7 @@ const Index = () => {
                       <Badge 
                         key={techIndex} 
                         variant="secondary"
-                        className="bg-white/10 text-white/80 border border-white/20 hover:bg-white/20 transition-colors duration-200"
+                        className="bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200 transition-colors duration-200"
                       >
                         {tech}
                       </Badge>
@@ -414,14 +407,14 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-24 relative">
+      <section id="testimonials" className="py-24 relative bg-gray-50">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500/20 to-orange-500/20 rounded-full border border-blue-500/30 backdrop-blur-sm mb-6">
-              <span className="text-blue-400 font-medium">Testimonials</span>
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
+              <span className="text-orange-600 font-medium">Testimonials</span>
             </div>
-            <h2 className="text-5xl font-bold text-white mb-6">Client Excellence</h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">Client Excellence</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Trusted by industry leaders worldwide
             </p>
           </div>
@@ -429,15 +422,15 @@ const Index = () => {
             {testimonials.map((testimonial, index) => (
               <Card 
                 key={index} 
-                className="bg-black/30 backdrop-blur-xl border border-white/10 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10"
+                className="bg-white backdrop-blur-xl border border-gray-200 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10"
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-center space-x-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-orange-400 text-orange-400" />
+                      <Star key={i} className="w-5 h-5 fill-orange-500 text-orange-500" />
                     ))}
                   </div>
-                  <CardDescription className="text-white/80 italic text-base leading-relaxed">
+                  <CardDescription className="text-gray-600 italic text-base leading-relaxed">
                     "{testimonial.content}"
                   </CardDescription>
                 </CardHeader>
@@ -446,11 +439,11 @@ const Index = () => {
                     <img 
                       src={testimonial.avatar} 
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-orange-400/50"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-orange-500/50"
                     />
                     <div>
-                      <p className="font-semibold text-white">{testimonial.name}</p>
-                      <p className="text-sm text-white/60">{testimonial.company}</p>
+                      <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                      <p className="text-sm text-gray-600">{testimonial.company}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -461,65 +454,65 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 relative">
+      <section id="contact" className="py-24 relative bg-white">
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-20">
-              <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
-                <span className="text-orange-400 font-medium">Get In Touch</span>
+              <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
+                <span className="text-orange-600 font-medium">Get In Touch</span>
               </div>
-              <h2 className="text-5xl font-bold text-white mb-6">Start Your Journey</h2>
-              <p className="text-xl text-white/70 max-w-3xl mx-auto">
+              <h2 className="text-5xl font-bold text-gray-900 mb-6">Start Your Journey</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Ready to elevate your digital presence? Let's create something extraordinary together.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-12">
-              <div className="text-white">
-                <h3 className="text-2xl font-semibold mb-8 text-orange-400">Let's Build Excellence</h3>
+              <div className="text-gray-900">
+                <h3 className="text-2xl font-semibold mb-8 text-orange-600">Let's Build Excellence</h3>
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-blue-500 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
                       <MessageSquareText className="w-6 h-6 text-white" />
                     </div>
                     <span className="text-lg">hello@wapr.agency</span>
                   </div>
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-orange-500 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center">
                       <Contact className="w-6 h-6 text-white" />
                     </div>
                     <span className="text-lg">+1 (555) 123-4567</span>
                   </div>
                 </div>
                 <div className="mt-12">
-                  <h4 className="font-semibold mb-6 text-xl text-blue-400">Why Choose WAPR?</h4>
-                  <ul className="space-y-4 text-white/80">
+                  <h4 className="font-semibold mb-6 text-xl text-orange-600">Why Choose WAPR?</h4>
+                  <ul className="space-y-4 text-gray-600">
                     <li className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      <div className="w-2 h-2 bg-orange-500 rounded-full" />
                       <span>Premium development expertise</span>
                     </li>
                     <li className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full" />
+                      <div className="w-2 h-2 bg-red-500 rounded-full" />
                       <span>Cutting-edge technology stack</span>
                     </li>
                     <li className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                      <div className="w-2 h-2 bg-orange-500 rounded-full" />
                       <span>Results-driven methodology</span>
                     </li>
                     <li className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full" />
+                      <div className="w-2 h-2 bg-red-500 rounded-full" />
                       <span>24/7 dedicated support</span>
                     </li>
                   </ul>
                 </div>
               </div>
-              <Card className="bg-black/30 backdrop-blur-xl border border-white/20">
+              <Card className="bg-gray-50 backdrop-blur-xl border border-gray-200">
                 <CardContent className="p-8">
                   <form onSubmit={handleContactSubmit} className="space-y-6">
                     <div>
                       <Input 
                         placeholder="Your Name" 
                         required 
-                        className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20 focus:border-orange-400 h-12 rounded-xl"
+                        className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:bg-white focus:border-orange-500 h-12 rounded-xl"
                       />
                     </div>
                     <div>
@@ -527,7 +520,7 @@ const Index = () => {
                         type="email" 
                         placeholder="Your Email" 
                         required 
-                        className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20 focus:border-orange-400 h-12 rounded-xl"
+                        className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:bg-white focus:border-orange-500 h-12 rounded-xl"
                       />
                     </div>
                     <div>
@@ -535,12 +528,12 @@ const Index = () => {
                         placeholder="Tell us about your project vision..." 
                         required 
                         rows={4}
-                        className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20 focus:border-orange-400 rounded-xl resize-none"
+                        className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:bg-white focus:border-orange-500 rounded-xl resize-none"
                       />
                     </div>
                     <Button 
                       type="submit" 
-                      className="w-full bg-gradient-to-r from-orange-500 to-blue-500 hover:from-orange-600 hover:to-blue-600 text-white font-semibold h-12 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg"
+                      className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold h-12 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg"
                     >
                       Send Message
                     </Button>
@@ -553,12 +546,12 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black/40 backdrop-blur-xl border-t border-white/10 text-white py-12 relative z-10">
+      <footer className="bg-gray-900 text-white py-12 relative z-10">
         <div className="container mx-auto px-6 text-center">
-          <div className="text-3xl font-bold bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent mb-6">
+          <div className="text-3xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-6">
             WAPR
           </div>
-          <p className="text-white/60 text-lg">
+          <p className="text-gray-400 text-lg">
             © 2024 WAPR. Crafting digital excellence, one project at a time.
           </p>
         </div>
