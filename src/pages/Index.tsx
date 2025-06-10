@@ -153,7 +153,7 @@ const Index = () => {
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="text-3xl font-bold">
-              <span className="bg-gradient-to-r from-orange-500 via-red-500 to-orange-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent">
                 WAPR
               </span>
             </div>
@@ -166,7 +166,7 @@ const Index = () => {
                   onClick={() => scrollToSection(section)}
                   className={`capitalize px-6 py-2 rounded-full transition-all duration-300 relative overflow-hidden ${
                     activeSection === section
-                      ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold shadow-lg'
+                      ? 'bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 text-white font-semibold shadow-lg'
                       : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200'
                   }`}
                 >
@@ -195,7 +195,7 @@ const Index = () => {
                   onClick={() => scrollToSection(section)}
                   className={`capitalize w-full text-left px-4 py-3 rounded-xl transition-all duration-300 block ${
                     activeSection === section
-                      ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold'
+                      ? 'bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 text-white font-semibold'
                       : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200'
                   }`}
                 >
@@ -214,7 +214,7 @@ const Index = () => {
             {/* Left Content */}
             <div className="text-left lg:text-left">
               <div className="mb-8 animate-fade-in">
-                <div className="inline-block px-6 py-3 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-8">
+                <div className="inline-block px-6 py-3 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-8">
                   <span className="text-orange-600 font-medium flex items-center">
                     <Star className="w-4 h-4 mr-2" />
                     Premium Digital Solutions
@@ -222,7 +222,7 @@ const Index = () => {
                 </div>
               </div>
               <h1 className="text-6xl md:text-7xl xl:text-8xl font-bold mb-8 animate-fade-in leading-tight">
-                <span className="text-gray-900">
+                <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent">
                   Luxury
                 </span>
                 <br />
@@ -236,7 +236,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
+                  className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 hover:from-orange-500 hover:via-orange-600 hover:to-blue-500 text-white font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
                   onClick={() => scrollToSection('projects')}
                 >
                   Explore Our Work
@@ -265,15 +265,15 @@ const Index = () => {
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-2xl border border-orange-500/30 flex items-center justify-center animate-float">
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-2xl border border-orange-500/30 flex items-center justify-center animate-float">
                 <Code className="w-12 h-12 text-orange-600" />
               </div>
               
-              <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-gradient-to-br from-red-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl border border-red-500/30 flex items-center justify-center animate-float" style={{animationDelay: '2s'}}>
-                <Smartphone className="w-8 h-8 text-red-600" />
+              <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl border border-blue-500/30 flex items-center justify-center animate-float" style={{animationDelay: '2s'}}>
+                <Smartphone className="w-8 h-8 text-blue-600" />
               </div>
 
-              <div className="absolute top-1/2 -right-6 w-20 h-20 bg-gradient-to-br from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-full border border-orange-500/30 flex items-center justify-center animate-float" style={{animationDelay: '4s'}}>
+              <div className="absolute top-1/2 -right-6 w-20 h-20 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-full border border-orange-500/30 flex items-center justify-center animate-float" style={{animationDelay: '4s'}}>
                 <TrendingUp className="w-6 h-6 text-orange-600" />
               </div>
             </div>
@@ -285,7 +285,7 @@ const Index = () => {
       <section id="services" className="py-24 relative bg-gray-50">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
               <span className="text-orange-600 font-medium">Our Expertise</span>
             </div>
             <h2 className="text-5xl font-bold text-gray-900 mb-6">Premium Services</h2>
@@ -302,9 +302,9 @@ const Index = () => {
                 onMouseLeave={() => setHoveredService(null)}
               >
                 <Card className={`group relative bg-white backdrop-blur-xl border border-gray-200 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 overflow-visible ${hoveredService === index ? 'transform -translate-y-2' : ''}`}>
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <CardHeader className="text-center relative z-10 pb-4">
-                    <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500 shadow-lg">
+                    <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-400 via-orange-500 to-blue-400 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500 shadow-lg">
                       {service.icon}
                     </div>
                     <CardTitle className="text-gray-900 text-xl mb-3">{service.title}</CardTitle>
@@ -352,7 +352,7 @@ const Index = () => {
       <section id="projects" className="py-24 relative bg-white">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
               <span className="text-orange-600 font-medium">Portfolio</span>
             </div>
             <h2 className="text-5xl font-bold text-gray-900 mb-6">Exceptional Projects</h2>
@@ -374,7 +374,7 @@ const Index = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
                   <div className="absolute top-4 right-4">
-                    <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0">
+                    <Badge className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 text-white border-0">
                       {project.category}
                     </Badge>
                   </div>
@@ -455,7 +455,7 @@ const Index = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-20">
-              <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
+              <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
                 <span className="text-orange-600 font-medium">Get In Touch</span>
               </div>
               <h2 className="text-5xl font-bold text-gray-900 mb-6">Start Your Journey</h2>
@@ -468,13 +468,13 @@ const Index = () => {
                 <h3 className="text-2xl font-semibold mb-8 text-orange-600">Let's Build Excellence</h3>
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-400 via-orange-500 to-blue-400 rounded-xl flex items-center justify-center">
                       <MessageSquareText className="w-6 h-6 text-white" />
                     </div>
                     <span className="text-lg">hello@wapr.agency</span>
                   </div>
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400 via-orange-500 to-orange-400 rounded-xl flex items-center justify-center">
                       <Contact className="w-6 h-6 text-white" />
                     </div>
                     <span className="text-lg">+1 (555) 123-4567</span>
@@ -488,7 +488,7 @@ const Index = () => {
                       <span>Premium development expertise</span>
                     </li>
                     <li className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full" />
+                      <div className="w-2 h-2 bg-blue-500 rounded-full" />
                       <span>Cutting-edge technology stack</span>
                     </li>
                     <li className="flex items-center space-x-3">
@@ -496,7 +496,7 @@ const Index = () => {
                       <span>Results-driven methodology</span>
                     </li>
                     <li className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full" />
+                      <div className="w-2 h-2 bg-blue-500 rounded-full" />
                       <span>24/7 dedicated support</span>
                     </li>
                   </ul>
@@ -530,7 +530,7 @@ const Index = () => {
                     </div>
                     <Button 
                       type="submit" 
-                      className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold h-12 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg"
+                      className="w-full bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 hover:from-orange-500 hover:via-orange-600 hover:to-blue-500 text-white font-semibold h-12 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg"
                     >
                       Send Message
                     </Button>
@@ -545,7 +545,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 relative z-10">
         <div className="container mx-auto px-6 text-center">
-          <div className="text-3xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-6">
+          <div className="text-3xl font-bold bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent mb-6">
             WAPR
           </div>
           <p className="text-gray-400 text-lg">
