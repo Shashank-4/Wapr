@@ -164,7 +164,7 @@ const Index = () => {
         "Created a user-centric mobile app to book professional chefs on-demand",
       tech: ["React Native", "Supabase", "TypeScript"],
       image: "/bookMyChef.png",
-      category: "E-commerce",
+      category: "Marketplace Platform",
       url: "https://www.bookmychef.app/",
     },
     {
@@ -173,7 +173,7 @@ const Index = () => {
         "Built a booking and database system to manage availability, guest info, and reservations",
       tech: ["NextJs", "ReactJs", "TypeScript"],
       image: "/joynests.png",
-      category: "FinTech",
+      category: "Booking System",
       url: "https://joynests.com/",
     },
     {
@@ -181,7 +181,7 @@ const Index = () => {
       description: "Enterprise-grade data visualization platform",
       tech: ["ReactJs", "TypeScript"],
       image: "/gangaKaveri.png",
-      category: "SaaS",
+      category: "Landing Page",
       url: "https://gangakaveri.in/",
     },
     {
@@ -189,7 +189,7 @@ const Index = () => {
       description: "Enterprise-grade data visualization platform",
       tech: ["ReactJs", "Python", "PostgreSQL", "TypeScript"],
       image: "/prudentoe.png",
-      category: "SaaS",
+      category: "Portfolio",
       url: "https://prudentoe.com/",
     },
     {
@@ -198,7 +198,7 @@ const Index = () => {
         "shopify-based online store with end-to-end purchase capability",
       tech: ["Shopify", "Razorpay", "Zapier"],
       image: "/shvelto.png",
-      category: "SaaS",
+      category: "E-commerce",
       url: "https://shvelto.com",
     },
   ];
