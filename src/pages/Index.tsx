@@ -11,7 +11,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import {
-  Users,
   Star,
   MessageSquare,
   Contact,
@@ -20,13 +19,20 @@ import {
   Code,
   Smartphone,
   TrendingUp,
-  Palette,
-  Globe,
   ShoppingCart,
-  Database,
   Zap,
   Menu,
   X,
+  Brush,
+  ChevronsLeftRightEllipsis,
+  BookOpenText,
+  Construction,
+  Hammer,
+  MonitorSmartphone,
+  MonitorCog,
+  Mail,
+  ThumbsUp,
+  Bug,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -88,13 +94,13 @@ const Index = () => {
       title: "WEB",
       description: "Cutting-edge web solutions with premium aesthetics",
       subServices: [
-        { icon: <Globe className="w-5 h-5" />, name: "UI/UX Design" },
+        { icon: <Brush className="w-5 h-5" />, name: "UI/UX Design" },
         {
-          icon: <ShoppingCart className="w-5 h-5" />,
+          icon: <ChevronsLeftRightEllipsis className="w-5 h-5" />,
           name: "Static & Dynamic Websites",
         },
         {
-          icon: <ShoppingCart className="w-5 h-5" />,
+          icon: <BookOpenText className="w-5 h-5" />,
           name: "Landing Pages",
         },
         {
@@ -102,10 +108,10 @@ const Index = () => {
           name: "ECommerce & Blog Development",
         },
         {
-          icon: <Zap className="w-5 h-5" />,
+          icon: <Construction className="w-5 h-5" />,
           name: "Optimization & Maintenance",
         },
-        { icon: <Zap className="w-5 h-5" />, name: "Tool Integrations" },
+        { icon: <Hammer className="w-5 h-5" />, name: "Tool Integrations" },
       ],
     },
     {
@@ -118,16 +124,19 @@ const Index = () => {
           name: "Mobile App Development",
         },
         {
-          icon: <Smartphone className="w-5 h-5" />,
+          icon: <MonitorSmartphone className="w-5 h-5" />,
           name: "Progressive Web Apps (PWA)",
         },
-        { icon: <Code className="w-5 h-5" />, name: "UI/UX for Apps" },
+        { icon: <Brush className="w-5 h-5" />, name: "UI/UX for Apps" },
         { icon: <Zap className="w-5 h-5" />, name: "MVP & Prototype Builds" },
         {
-          icon: <Zap className="w-5 h-5" />,
+          icon: <MonitorCog className="w-5 h-5" />,
           name: "API & Backend Integration",
         },
-        { icon: <Zap className="w-5 h-5" />, name: "Deployment & Maintenance" },
+        {
+          icon: <Hammer className="w-5 h-5" />,
+          name: "Deployment & Maintenance",
+        },
       ],
     },
     {
@@ -145,14 +154,14 @@ const Index = () => {
         },
         { icon: <Star className="w-5 h-5" />, name: "Brand Identity" },
         {
-          icon: <Users className="w-5 h-5" />,
+          icon: <ThumbsUp className="w-5 h-5" />,
           name: "Social Media Management",
         },
         {
-          icon: <Users className="w-5 h-5" />,
+          icon: <Mail className="w-5 h-5" />,
           name: "Email Marketing & CRM Setup",
         },
-        { icon: <Users className="w-5 h-5" />, name: "Analytics & Reporting" },
+        { icon: <Bug className="w-5 h-5" />, name: "Analytics & Reporting" },
       ],
     },
   ];
@@ -161,7 +170,7 @@ const Index = () => {
     {
       title: "Book My Chef - Food Service",
       description:
-        "Created a user-centric mobile app to book professional chefs on-demand",
+        "A user-centric mobile app to book professional chefs on-demand to your location",
       tech: ["React Native", "Supabase", "TypeScript"],
       image: "/bookMyChef.png",
       category: "Marketplace Platform",
@@ -170,7 +179,7 @@ const Index = () => {
     {
       title: "JoyNests - Farmhouse Booking Platform",
       description:
-        "Built a booking and database system to manage availability, guest info, and reservations",
+        "A booking and database system to manage availability, guest info, and reservations of retreats and farmhouses",
       tech: ["NextJs", "ReactJs", "TypeScript"],
       image: "/joynests.png",
       category: "Booking System",
@@ -178,7 +187,8 @@ const Index = () => {
     },
     {
       title: "Ganga Kaveri Seeds - Portfolio for real farmers",
-      description: "Enterprise-grade data visualization platform",
+      description:
+        "A mobile-friendly website optimized for farmers and distributors, making it easy to access product information.",
       tech: ["ReactJs", "TypeScript"],
       image: "/gangaKaveri.png",
       category: "Landing Page",
@@ -186,7 +196,8 @@ const Index = () => {
     },
     {
       title: "Prudentoe - Door-Step Dental",
-      description: "Enterprise-grade data visualization platform",
+      description:
+        "A Modern, SEO-optimized website tailored for home dental services and lead conversion.",
       tech: ["ReactJs", "Python", "PostgreSQL", "TypeScript"],
       image: "/prudentoe.png",
       category: "Portfolio",
@@ -195,7 +206,7 @@ const Index = () => {
     {
       title: "Shvelto - eCommerce website",
       description:
-        "shopify-based online store with end-to-end purchase capability",
+        "A shopify-based online store with end-to-end purchase capability",
       tech: ["Shopify", "Razorpay", "Zapier"],
       image: "/shvelto.png",
       category: "E-commerce",
