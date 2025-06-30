@@ -1,29 +1,60 @@
-
-import React, { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
-import { Users, Star, MessageSquare, Contact, GalleryHorizontal, MessageSquareText, Code, Smartphone, TrendingUp, Palette, Globe, ShoppingCart, Database, Zap, Menu, X } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import React, { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import {
+  Users,
+  Star,
+  MessageSquare,
+  Contact,
+  GalleryHorizontal,
+  MessageSquareText,
+  Code,
+  Smartphone,
+  TrendingUp,
+  Palette,
+  Globe,
+  ShoppingCart,
+  Database,
+  Zap,
+  Menu,
+  X,
+} from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
   const [hoveredService, setHoveredService] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'services', 'projects', 'testimonials', 'contact'];
+      const sections = [
+        "home",
+        "services",
+        "projects",
+        "testimonials",
+        "contact",
+      ];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
             setActiveSection(section);
             break;
           }
@@ -31,14 +62,14 @@ const Index = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     setMobileMenuOpen(false);
   };
@@ -54,96 +85,187 @@ const Index = () => {
   const services = [
     {
       icon: <Code className="w-8 h-8" />,
-      title: "Web Development",
+      title: "WEB",
       description: "Cutting-edge web solutions with premium aesthetics",
       subServices: [
-        { icon: <Globe className="w-5 h-5" />, name: "Custom Web Apps" },
-        { icon: <ShoppingCart className="w-5 h-5" />, name: "E-commerce Platforms" },
-        { icon: <Database className="w-5 h-5" />, name: "CMS Development" },
-        { icon: <Zap className="w-5 h-5" />, name: "Performance Optimization" }
-      ]
+        { icon: <Globe className="w-5 h-5" />, name: "UI/UX Design" },
+        {
+          icon: <ShoppingCart className="w-5 h-5" />,
+          name: "Static & Dynamic Websites",
+        },
+        {
+          icon: <ShoppingCart className="w-5 h-5" />,
+          name: "Landing Pages",
+        },
+        {
+          icon: <ShoppingCart className="w-5 h-5" />,
+          name: "ECommerce & Blog Development",
+        },
+        {
+          icon: <Zap className="w-5 h-5" />,
+          name: "Optimization & Maintenance",
+        },
+        { icon: <Zap className="w-5 h-5" />, name: "Tool Integrations" },
+      ],
     },
     {
       icon: <Smartphone className="w-8 h-8" />,
-      title: "Mobile Apps",
+      title: "APP",
       description: "Native and cross-platform mobile experiences",
       subServices: [
-        { icon: <Smartphone className="w-5 h-5" />, name: "iOS Development" },
-        { icon: <Smartphone className="w-5 h-5" />, name: "Android Development" },
-        { icon: <Code className="w-5 h-5" />, name: "React Native" },
-        { icon: <Zap className="w-5 h-5" />, name: "Flutter Apps" }
-      ]
+        {
+          icon: <Smartphone className="w-5 h-5" />,
+          name: "Mobile App Development",
+        },
+        {
+          icon: <Smartphone className="w-5 h-5" />,
+          name: "Progressive Web Apps (PWA)",
+        },
+        { icon: <Code className="w-5 h-5" />, name: "UI/UX for Apps" },
+        { icon: <Zap className="w-5 h-5" />, name: "MVP & Prototype Builds" },
+        {
+          icon: <Zap className="w-5 h-5" />,
+          name: "API & Backend Integration",
+        },
+        { icon: <Zap className="w-5 h-5" />, name: "Deployment & Maintenance" },
+      ],
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
-      title: "Digital Marketing",
+      title: "REACH",
       description: "Strategic marketing to amplify your reach",
       subServices: [
-        { icon: <TrendingUp className="w-5 h-5" />, name: "SEO Optimization" },
-        { icon: <MessageSquare className="w-5 h-5" />, name: "Social Media" },
-        { icon: <Star className="w-5 h-5" />, name: "Content Strategy" },
-        { icon: <Users className="w-5 h-5" />, name: "Influencer Marketing" }
-      ]
+        {
+          icon: <TrendingUp className="w-5 h-5" />,
+          name: "SEO Strategy & Execution",
+        },
+        {
+          icon: <MessageSquare className="w-5 h-5" />,
+          name: "Performance Marketing",
+        },
+        { icon: <Star className="w-5 h-5" />, name: "Brand Identity" },
+        {
+          icon: <Users className="w-5 h-5" />,
+          name: "Social Media Management",
+        },
+        {
+          icon: <Users className="w-5 h-5" />,
+          name: "Email Marketing & CRM Setup",
+        },
+        { icon: <Users className="w-5 h-5" />, name: "Analytics & Reporting" },
+      ],
     },
-    {
-      icon: <Palette className="w-8 h-8" />,
-      title: "Brand Strategy",
-      description: "Compelling brand identities that resonate",
-      subServices: [
-        { icon: <Palette className="w-5 h-5" />, name: "Logo Design" },
-        { icon: <Star className="w-5 h-5" />, name: "Brand Guidelines" },
-        { icon: <Globe className="w-5 h-5" />, name: "Visual Identity" },
-        { icon: <MessageSquare className="w-5 h-5" />, name: "Brand Messaging" }
-      ]
-    }
   ];
 
   const projects = [
     {
-      title: "Luxury E-commerce Platform",
-      description: "Premium shopping experience with advanced features",
-      tech: ["React", "Node.js", "MongoDB"],
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop",
-      category: "E-commerce"
+      title: "Book My Chef - Food Service",
+      description:
+        "Created a user-centric mobile app to book professional chefs on-demand",
+      tech: ["React Native", "Supabase", "TypeScript"],
+      image: "/bookMyChef.png",
+      category: "E-commerce",
+      url: "https://www.bookmychef.app/",
     },
     {
-      title: "FinTech Mobile Banking",
-      description: "Secure and intuitive financial solution",
-      tech: ["React Native", "Firebase", "TypeScript"],
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
-      category: "FinTech"
+      title: "JoyNests - Farmhouse Booking Platform",
+      description:
+        "Built a booking and database system to manage availability, guest info, and reservations",
+      tech: ["NextJs", "ReactJs", "TypeScript"],
+      image: "/joynests.png",
+      category: "FinTech",
+      url: "https://joynests.com/",
     },
     {
-      title: "Analytics Dashboard",
+      title: "Ganga Kaveri Seeds - Portfolio for real farmers",
       description: "Enterprise-grade data visualization platform",
-      tech: ["Vue.js", "Python", "PostgreSQL"],
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
-      category: "SaaS"
-    }
+      tech: ["ReactJs", "TypeScript"],
+      image: "/gangaKaveri.png",
+      category: "SaaS",
+      url: "https://gangakaveri.in/",
+    },
+    {
+      title: "Prudentoe - Door-Step Dental",
+      description: "Enterprise-grade data visualization platform",
+      tech: ["ReactJs", "Python", "PostgreSQL", "TypeScript"],
+      image: "/prudentoe.png",
+      category: "SaaS",
+      url: "https://prudentoe.com/",
+    },
+    {
+      title: "Shvelto - eCommerce website",
+      description:
+        "shopify-based online store with end-to-end purchase capability",
+      tech: ["Shopify", "Razorpay", "Zapier"],
+      image: "/shvelto.png",
+      category: "SaaS",
+      url: "https://shvelto.com",
+    },
   ];
 
   const testimonials = [
     {
       name: "Sarah Johnson",
       company: "Luxury Brands Inc.",
-      content: "WAPR exceeded our expectations with their premium approach to digital transformation. Outstanding quality and attention to detail.",
+      content:
+        "WAPR exceeded our expectations with their premium approach to digital transformation. Outstanding quality and attention to detail.",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=100&h=100&fit=crop&crop=face"
+      avatar:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=100&h=100&fit=crop&crop=face",
     },
     {
       name: "Michael Chen",
       company: "TechVentures",
-      content: "The mobile app they developed has revolutionized our business. Exceptional user experience and flawless execution.",
+      content:
+        "The mobile app they developed has revolutionized our business. Exceptional user experience and flawless execution.",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+      avatar:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
     },
     {
       name: "Emily Rodriguez",
       company: "InnovateHub",
-      content: "Professional, creative, and results-driven. WAPR delivers luxury-grade solutions that truly make a difference.",
+      content:
+        "Professional, creative, and results-driven. WAPR delivers luxury-grade solutions that truly make a difference.",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
-    }
+      avatar:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    },
+  ];
+
+  const companies = [
+    {
+      name: "Google",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+    },
+    {
+      name: "Oracle",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg",
+    },
+    {
+      name: "American Express",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg",
+    },
+    {
+      name: "VISA",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg",
+    },
+    {
+      name: "Amazon",
+      logo: "https://logo.clearbit.com/amazon.com",
+    },
+    {
+      name: "UST",
+      logo: "https://logo.clearbit.com/ust.com",
+    },
+    {
+      name: "L&T Technology Services",
+      logo: "https://logo.clearbit.com/ltts.com",
+    },
+    {
+      name: "PhonePe",
+      logo: "https://logo.clearbit.com/phonepe.com",
+    },
   ];
 
   return (
@@ -157,17 +279,17 @@ const Index = () => {
                 WAPR
               </span>
             </div>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1 bg-gray-100 rounded-full p-1 backdrop-blur-sm border border-gray-200">
-              {['home', 'services', 'projects', 'testimonials', 'contact'].map((section) => (
+              {["home", "services", "projects", "contact"].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
                   className={`capitalize px-6 py-2 rounded-full transition-all duration-300 relative overflow-hidden ${
                     activeSection === section
-                      ? 'bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 text-white font-semibold shadow-lg'
-                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200'
+                      ? "bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 text-white font-semibold shadow-lg"
+                      : "text-gray-700 hover:text-gray-900 hover:bg-gray-200"
                   }`}
                 >
                   {section}
@@ -180,35 +302,46 @@ const Index = () => {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden p-2 rounded-xl bg-gray-100 border border-gray-200 text-gray-700 hover:bg-gray-200 transition-colors duration-300"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
 
           {/* Mobile Navigation */}
-          <div className={`md:hidden overflow-hidden transition-all duration-500 ${
-            mobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
-          }`}>
+          <div
+            className={`md:hidden overflow-hidden transition-all duration-500 ${
+              mobileMenuOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
+            }`}
+          >
             <div className="bg-gray-50 rounded-2xl p-4 backdrop-blur-sm border border-gray-200">
-              {['home', 'services', 'projects', 'testimonials', 'contact'].map((section) => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className={`capitalize w-full text-left px-4 py-3 rounded-xl transition-all duration-300 block ${
-                    activeSection === section
-                      ? 'bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 text-white font-semibold'
-                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200'
-                  }`}
-                >
-                  {section}
-                </button>
-              ))}
+              {["home", "services", "projects", "testimonials", "contact"].map(
+                (section) => (
+                  <button
+                    key={section}
+                    onClick={() => scrollToSection(section)}
+                    className={`capitalize w-full text-left px-4 py-3 rounded-xl transition-all duration-300 block ${
+                      activeSection === section
+                        ? "bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 text-white font-semibold"
+                        : "text-gray-700 hover:text-gray-900 hover:bg-gray-200"
+                    }`}
+                  >
+                    {section}
+                  </button>
+                )
+              )}
             </div>
           </div>
         </div>
       </nav>
 
       {/* Enhanced Hero Section with White Background */}
-      <section id="home" className="pt-40 pb-20 px-6 relative overflow-hidden bg-white">
+      <section
+        id="home"
+        className="pt-40 pb-20 px-6 relative overflow-hidden bg-white"
+      >
         <div className="container mx-auto text-center relative z-10">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -230,22 +363,30 @@ const Index = () => {
                 <br />
                 <span className="text-gray-700">Experiences</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-12 animate-fade-in max-w-2xl leading-relaxed" style={{animationDelay: '0.2s'}}>
-                We craft exceptional websites, powerful mobile applications, and strategic marketing campaigns that elevate your brand to new heights of digital excellence.
+              <p
+                className="text-xl text-gray-600 mb-12 animate-fade-in max-w-2xl leading-relaxed"
+                style={{ animationDelay: "0.2s" }}
+              >
+                We craft exceptional websites, powerful mobile applications, and
+                strategic marketing campaigns that elevate your brand to new
+                heights of digital excellence.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{animationDelay: '0.4s'}}>
-                <Button 
-                  size="lg" 
+              <div
+                className="flex flex-col sm:flex-row gap-6 animate-fade-in"
+                style={{ animationDelay: "0.4s" }}
+              >
+                <Button
+                  size="lg"
                   className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 hover:from-orange-500 hover:via-orange-600 hover:to-blue-500 text-white font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-2xl"
-                  onClick={() => scrollToSection('projects')}
+                  onClick={() => scrollToSection("projects")}
                 >
                   Explore Our Work
                 </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
+                <Button
+                  size="lg"
+                  variant="outline"
                   className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 hover:border-orange-600 font-semibold px-8 py-4 rounded-xl transform hover:scale-105 transition-all duration-300"
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => scrollToSection("contact")}
                 >
                   Start Your Project
                 </Button>
@@ -253,11 +394,14 @@ const Index = () => {
             </div>
 
             {/* Right Graphics */}
-            <div className="relative animate-fade-in" style={{animationDelay: '0.6s'}}>
+            <div
+              className="relative animate-fade-in"
+              style={{ animationDelay: "0.6s" }}
+            >
               {/* Main Hero Image */}
               <div className="relative z-10">
-                <img 
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&crop=center" 
+                <img
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&crop=center"
                   alt="Modern web development workspace"
                   className="w-full h-auto rounded-3xl shadow-2xl shadow-black/30 border border-gray-200"
                 />
@@ -268,12 +412,18 @@ const Index = () => {
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-2xl border border-orange-500/30 flex items-center justify-center animate-float">
                 <Code className="w-12 h-12 text-orange-600" />
               </div>
-              
-              <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl border border-blue-500/30 flex items-center justify-center animate-float" style={{animationDelay: '2s'}}>
+
+              <div
+                className="absolute -left-10 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl border border-blue-500/30 flex items-center justify-center animate-float"
+                style={{ animationDelay: "2s" }}
+              >
                 <Smartphone className="w-8 h-8 text-blue-600" />
               </div>
 
-              <div className="absolute top-1/2 -right-6 w-20 h-20 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-full border border-orange-500/30 flex items-center justify-center animate-float" style={{animationDelay: '4s'}}>
+              <div
+                className="absolute top-1/2 -right-12 w-20 h-20 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-full border border-orange-500/30 flex items-center justify-center animate-float"
+                style={{ animationDelay: "4s" }}
+              >
                 <TrendingUp className="w-6 h-6 text-orange-600" />
               </div>
             </div>
@@ -288,51 +438,68 @@ const Index = () => {
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
               <span className="text-orange-600 font-medium">Our Expertise</span>
             </div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">Premium Services</h2>
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+              Premium Services
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive digital solutions crafted with precision and elegance
+              Comprehensive digital solutions crafted with precision and
+              elegance
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div 
+              <div
                 key={index}
-                className="relative"
+                className={`relative transition-all duration-300 ${
+                  hoveredService === index ? "z-[9999]" : "z-10"
+                }`}
                 onMouseEnter={() => setHoveredService(index)}
                 onMouseLeave={() => setHoveredService(null)}
+                style={{ zIndex: hoveredService === index ? 9999 : 10 }}
               >
-                <Card className={`group relative bg-white backdrop-blur-xl border border-gray-200 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 overflow-visible ${hoveredService === index ? 'transform -translate-y-2' : ''}`}>
+                <Card
+                  className={`group relative bg-white border border-gray-200 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 overflow-visible`}
+                >
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <CardHeader className="text-center relative z-10 pb-4">
                     <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-400 via-orange-500 to-blue-400 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500 shadow-lg">
                       {service.icon}
                     </div>
-                    <CardTitle className="text-gray-900 text-xl mb-3">{service.title}</CardTitle>
+                    <CardTitle className="text-gray-900 text-xl mb-3">
+                      {service.title}
+                    </CardTitle>
                     <CardDescription className="text-gray-600 text-sm leading-relaxed">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
                 </Card>
-                
-                {/* Enhanced Sub-services Card with higher z-index */}
-                <div className={`absolute top-full left-0 right-0 mt-2 transition-all duration-500 z-[200] ${
-                  hoveredService === index 
-                    ? 'opacity-100 translate-y-0 pointer-events-auto' 
-                    : 'opacity-0 translate-y-4 pointer-events-none'
-                }`}>
-                  <Card className="bg-white/95 backdrop-blur-xl border border-orange-500/30 shadow-2xl shadow-orange-500/20">
+
+                {/* Enhanced Sub-services Card with maximum z-index */}
+                <div
+                  className={`absolute top-full left-0 right-0 mt-2 transition-all duration-500 ${
+                    hoveredService === index
+                      ? "opacity-100 pointer-events-auto"
+                      : "opacity-0 pointer-events-none"
+                  }`}
+                  style={{ zIndex: 9999 }}
+                >
+                  <Card className="bg-white/95 backdrop-blur-sm border border-orange-500/30 shadow-2xl shadow-orange-500/20">
                     <CardContent className="p-6">
-                      <h4 className="text-orange-600 font-semibold mb-4 text-center">Specialized Services</h4>
+                      <h4 className="text-orange-600 font-semibold mb-4 text-center">
+                        Specialized Services
+                      </h4>
                       <div className="space-y-3">
                         {service.subServices.map((subService, subIndex) => (
-                          <div 
-                            key={subIndex} 
+                          <div
+                            key={subIndex}
                             className="flex items-center space-x-3 text-gray-600 hover:text-orange-600 transition-colors duration-200 cursor-pointer group/sub p-2 rounded-lg hover:bg-orange-50"
                           >
                             <div className="text-orange-600 group-hover/sub:scale-110 transition-transform duration-200">
                               {subService.icon}
                             </div>
-                            <span className="text-sm font-medium">{subService.name}</span>
+                            <span className="text-sm font-medium">
+                              {subService.name}
+                            </span>
                             <div className="ml-auto opacity-0 group-hover/sub:opacity-100 transition-opacity duration-200">
                               <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
                             </div>
@@ -350,25 +517,27 @@ const Index = () => {
 
       {/* Projects Section */}
       <section id="projects" className="py-24 relative bg-white">
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 relative">
           <div className="text-center mb-20">
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
               <span className="text-orange-600 font-medium">Portfolio</span>
             </div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">Exceptional Projects</h2>
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+              Exceptional Projects
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Showcasing our finest work and digital masterpieces
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="group overflow-hidden bg-white backdrop-blur-xl border border-gray-200 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20"
               >
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
                     className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
@@ -381,14 +550,18 @@ const Index = () => {
                   <GalleryHorizontal className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-gray-900 text-xl">{project.title}</CardTitle>
-                  <CardDescription className="text-gray-600">{project.description}</CardDescription>
+                  <CardTitle className="text-gray-900 text-xl">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="text-gray-600">
+                    {project.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="pt-0">
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech, techIndex) => (
-                      <Badge 
-                        key={techIndex} 
+                      <Badge
+                        key={techIndex}
                         variant="secondary"
                         className="bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200 transition-colors duration-200"
                       >
@@ -404,27 +577,32 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-24 relative bg-gray-50">
+      <section id="testimonials" className="py-24 relative bg-gray-50 hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
               <span className="text-orange-600 font-medium">Testimonials</span>
             </div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">Client Excellence</h2>
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+              Client Excellence
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Trusted by industry leaders worldwide
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="bg-white backdrop-blur-xl border border-gray-200 hover:border-orange-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10"
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-center space-x-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-orange-500 text-orange-500" />
+                      <Star
+                        key={i}
+                        className="w-5 h-5 fill-orange-500 text-orange-500"
+                      />
                     ))}
                   </div>
                   <CardDescription className="text-gray-600 italic text-base leading-relaxed">
@@ -433,14 +611,18 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center space-x-4">
-                    <img 
-                      src={testimonial.avatar} 
+                    <img
+                      src={testimonial.avatar}
                       alt={testimonial.name}
                       className="w-12 h-12 rounded-full object-cover border-2 border-orange-500/50"
                     />
                     <div>
-                      <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                      <p className="text-sm text-gray-600">{testimonial.company}</p>
+                      <p className="font-semibold text-gray-900">
+                        {testimonial.name}
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        {testimonial.company}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -449,23 +631,87 @@ const Index = () => {
           </div>
         </div>
       </section>
+      {/* Tech Giants Section*/}
+      <section id="techGiants" className="py-24 bg-white">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
+              <span className="text-orange-600 font-medium">
+                Experts From Tech Giants
+              </span>
+            </div>
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+              Client Excellence
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Trusted by industry leaders worldwide
+            </p>
+          </div>
 
+          <div className="container mx-auto px-6">
+            <div className="relative">
+              {/* <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+              <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-gray-50 to-transparent z-10"></div> */}
+
+              <div className="flex animate-logo-scroll">
+                <div className="flex gap-x-16 justify-around items-center">
+                  {companies.map((company, index) => (
+                    <div
+                      key={`first-${index}`}
+                      className="flex-shrink-0 w-48 h-32 flex items-center justify-center bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-4"
+                    >
+                      <img
+                        src={company.logo}
+                        alt={`${company.name} logo`}
+                        className="max-w-full max-h-full object-contain filter transition-all duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* duplicate section to animate scorll  */}
+                <div className="flex space-x-16 min-w-full justify-around items-center px-8">
+                  {companies.map((company, index) => (
+                    <div
+                      key={`second-${index}`}
+                      className="flex-shrink-0 w-48 h-32 flex items-center justify-center bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-4"
+                    >
+                      <img
+                        src={company.logo}
+                        alt={`${company.name} logo`}
+                        className="max-w-full max-h-full object-contain filter transition-all duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Contact Section */}
       <section id="contact" className="py-24 relative bg-white">
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-20">
               <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
-                <span className="text-orange-600 font-medium">Get In Touch</span>
+                <span className="text-orange-600 font-medium">
+                  Get In Touch
+                </span>
               </div>
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">Start Your Journey</h2>
+              <h2 className="text-5xl font-bold text-gray-900 mb-6">
+                Start Your Journey
+              </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Ready to elevate your digital presence? Let's create something extraordinary together.
+                Ready to elevate your digital presence? Let's create something
+                extraordinary together.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-12">
               <div className="text-gray-900">
-                <h3 className="text-2xl font-semibold mb-8 text-orange-600">Let's Build Excellence</h3>
+                <h3 className="text-2xl font-semibold mb-8 text-orange-600">
+                  Let's Build Excellence
+                </h3>
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-orange-400 via-orange-500 to-blue-400 rounded-xl flex items-center justify-center">
@@ -481,7 +727,9 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="mt-12">
-                  <h4 className="font-semibold mb-6 text-xl text-orange-600">Why Choose WAPR?</h4>
+                  <h4 className="font-semibold mb-6 text-xl text-orange-600">
+                    Why Choose WAPR?
+                  </h4>
                   <ul className="space-y-4 text-gray-600">
                     <li className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-orange-500 rounded-full" />
@@ -506,30 +754,30 @@ const Index = () => {
                 <CardContent className="p-8">
                   <form onSubmit={handleContactSubmit} className="space-y-6">
                     <div>
-                      <Input 
-                        placeholder="Your Name" 
-                        required 
+                      <Input
+                        placeholder="Your Name"
+                        required
                         className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:bg-white focus:border-orange-500 h-12 rounded-xl"
                       />
                     </div>
                     <div>
-                      <Input 
-                        type="email" 
-                        placeholder="Your Email" 
-                        required 
+                      <Input
+                        type="email"
+                        placeholder="Your Email"
+                        required
                         className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:bg-white focus:border-orange-500 h-12 rounded-xl"
                       />
                     </div>
                     <div>
-                      <Textarea 
-                        placeholder="Tell us about your project vision..." 
-                        required 
+                      <Textarea
+                        placeholder="Tell us about your project vision..."
+                        required
                         rows={4}
                         className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:bg-white focus:border-orange-500 rounded-xl resize-none"
                       />
                     </div>
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
                       className="w-full bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 hover:from-orange-500 hover:via-orange-600 hover:to-blue-500 text-white font-semibold h-12 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg"
                     >
                       Send Message
