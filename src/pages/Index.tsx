@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -35,8 +35,13 @@ import {
   Bug,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const Index = () => {
+  const form = useRef<HTMLFormElement>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
   const [activeSection, setActiveSection] = useState("home");
   const [hoveredService, setHoveredService] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -80,12 +85,46 @@ const Index = () => {
     setMobileMenuOpen(false);
   };
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const SERVICE_ID = "service_hxwg6ys";
+  const TEMPLATE_ID = "template_wx4ktsi";
+  const PUBLIC_KEY = "MqstAZGCtLypKWFp1";
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. We'll get back to you soon!",
-    });
+    setIsLoading(true);
+    setMessage("");
+
+    if (!form.current) {
+      setMessage("Form reference error. Please try again.");
+      setIsLoading(false);
+      return;
+    }
+
+    // Get form data
+    const formData = new FormData(form.current);
+    const templateParams = {
+      user_name: formData.get("user_name"),
+      user_email: formData.get("user_email"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        templateParams,
+        PUBLIC_KEY
+      );
+
+      console.log("Email sent successfully:", result.text);
+      setMessage("Message sent successfully! We'll get back to you soon.");
+      form.current.reset();
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setMessage("Failed to send message. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const services = [
@@ -763,9 +802,14 @@ const Index = () => {
               </div>
               <Card className="bg-gray-50 backdrop-blur-xl border border-gray-200">
                 <CardContent className="p-8">
-                  <form onSubmit={handleContactSubmit} className="space-y-6">
+                  <form
+                    ref={form}
+                    onSubmit={handleContactSubmit}
+                    className="space-y-6"
+                  >
                     <div>
                       <Input
+                        name="user_name"
                         placeholder="Your Name"
                         required
                         className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:bg-white focus:border-orange-500 h-12 rounded-xl"
@@ -774,6 +818,7 @@ const Index = () => {
                     <div>
                       <Input
                         type="email"
+                        name="user_email"
                         placeholder="Your Email"
                         required
                         className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 focus:bg-white focus:border-orange-500 h-12 rounded-xl"
@@ -781,6 +826,7 @@ const Index = () => {
                     </div>
                     <div>
                       <Textarea
+                        name="message"
                         placeholder="Tell us about your project vision..."
                         required
                         rows={4}
@@ -789,11 +835,23 @@ const Index = () => {
                     </div>
                     <Button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 hover:from-orange-500 hover:via-orange-600 hover:to-blue-500 text-white font-semibold h-12 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg"
+                      disabled={isLoading}
+                      className="w-full bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 hover:from-orange-500 hover:via-orange-600 hover:to-blue-500 text-white font-semibold h-12 rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Send Message
+                      {isLoading ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
+                  {message && (
+                    <div
+                      className={`mt-4 p-3 rounded-lg ${
+                        message.includes("successfully")
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
+                    >
+                      {message}
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </div>
@@ -808,7 +866,7 @@ const Index = () => {
             WAPR
           </div>
           <p className="text-gray-400 text-lg">
-            © 2024 WAPR. Crafting digital excellence, one project at a time.
+            © 2025 WAPR. Crafting digital excellence, one project at a time.
           </p>
         </div>
       </footer>
