@@ -377,3 +377,43 @@ html {
 .animate-logo-scroll:hover {
   animation-play-state: paused;
 }
+
+.animate-mobile-icon{
+  width: 6rem;
+  height: 6rem;
+}
+.animate-arrow-icon{
+  width: 5rem;
+  height: 5rem;
+}
+.animate-code-icon{
+  width: 8rem;
+  height: 8rem;
+  right: -10px;
+}
+
+@media screen and (max-width: 768px) {
+  .animate-mobile-icon{
+    width: 4rem;
+    height: 4rem;
+    left: 0px;
+  }
+  .animate-arrow-icon{
+    width: 5rem;
+    height: 5rem;
+    display: none;
+  }
+  .animate-code-icon{
+    width: 5rem;
+    height: 5rem;
+    right: 0px;
+  }
+  .animate-code-icon svg{
+    width: 2rem;
+    height: 2rem;
+  }
+  .animate-mobile-icon svg{
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

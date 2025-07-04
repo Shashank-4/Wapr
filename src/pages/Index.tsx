@@ -392,7 +392,7 @@ const Index = () => {
         id="home"
         className="pt-40 pb-20 px-6 relative overflow-hidden bg-white"
       >
-        <div className="container mx-auto text-center relative z-10">
+        <div className="container mx-auto text-center relative z-10 p-0">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="text-left lg:text-left">
@@ -459,19 +459,19 @@ const Index = () => {
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-2xl border border-orange-500/30 flex items-center justify-center animate-float">
+              <div className="absolute -top-10 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-2xl border border-orange-500/30 flex items-center justify-center animate-float animate-code-icon">
                 <Code className="w-12 h-12 text-orange-600" />
               </div>
 
               <div
-                className="absolute -left-10 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl border border-blue-500/30 flex items-center justify-center animate-float"
+                className="absolute bg-gradient-to-br from-blue-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl border border-blue-500/30 flex items-center justify-center animate-float animate-mobile-icon"
                 style={{ animationDelay: "2s" }}
               >
                 <Smartphone className="w-8 h-8 text-blue-600" />
               </div>
 
               <div
-                className="absolute top-1/2 -right-12 w-20 h-20 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-full border border-orange-500/30 flex items-center justify-center animate-float"
+                className="absolute top-1/2 -right-12 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-full border border-orange-500/30 flex items-center justify-center animate-float animate-arrow-icon"
                 style={{ animationDelay: "4s" }}
               >
                 <TrendingUp className="w-6 h-6 text-orange-600" />
@@ -769,12 +769,12 @@ const Index = () => {
                     </div>
                     <span className="text-lg">hello@wapr.agency</span>
                   </div>
-                  <div className="flex items-center space-x-4">
+                  {/* <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-400 via-orange-500 to-orange-400 rounded-xl flex items-center justify-center">
                       <Contact className="w-6 h-6 text-white" />
                     </div>
                     <span className="text-lg">+1 (555) 123-4567</span>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="mt-12">
                   <h4 className="font-semibold mb-6 text-xl text-orange-600">
@@ -783,19 +783,27 @@ const Index = () => {
                   <ul className="space-y-4 text-gray-600">
                     <li className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-orange-500 rounded-full" />
-                      <span>Premium development expertise</span>
+                      <span>AI-Powered Everything</span>
                     </li>
                     <li className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                      <span>Cutting-edge technology stack</span>
+                      <span>Design-First Thinking</span>
                     </li>
                     <li className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-orange-500 rounded-full" />
-                      <span>Results-driven methodology</span>
+                      <span>Rapid Execution</span>
                     </li>
                     <li className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                      <span>24/7 dedicated support</span>
+                      <span>Full-Stack Capabilities</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full" />
+                      <span>Data-Driven Growth</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                      <span>Expert-Led Delivery</span>
                     </li>
                   </ul>
                 </div>
