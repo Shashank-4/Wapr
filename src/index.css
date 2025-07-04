@@ -416,4 +416,7 @@ html {
     width: 1.5rem;
     height: 1.5rem;
   }
+  .animate-logo-scroll {
+    animation: logo-scroll 10s linear infinite;
+  }
 }
