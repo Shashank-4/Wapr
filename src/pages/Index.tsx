@@ -367,21 +367,19 @@ const Index = () => {
             }`}
           >
             <div className="bg-gray-50 rounded-2xl p-4 backdrop-blur-sm border border-gray-200">
-              {["home", "services", "projects", "testimonials", "contact"].map(
-                (section) => (
-                  <button
-                    key={section}
-                    onClick={() => scrollToSection(section)}
-                    className={`capitalize w-full text-left px-4 py-3 rounded-xl transition-all duration-300 block ${
-                      activeSection === section
-                        ? "bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 text-white font-semibold"
-                        : "text-gray-700 hover:text-gray-900 hover:bg-gray-200"
-                    }`}
-                  >
-                    {section}
-                  </button>
-                )
-              )}
+              {["home", "services", "projects", "contact"].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`capitalize w-full text-left px-4 py-3 rounded-xl transition-all duration-300 block ${
+                    activeSection === section
+                      ? "bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 text-white font-semibold"
+                      : "text-gray-700 hover:text-gray-900 hover:bg-gray-200"
+                  }`}
+                >
+                  {section}
+                </button>
+              ))}
             </div>
           </div>
         </div>
