@@ -404,7 +404,7 @@ const Index = () => {
                   </span>
                 </div>
               </div>
-              <h1 className="text-6xl md:text-7xl xl:text-8xl font-bold mb-8 animate-fade-in leading-tight">
+              <h1 className="text-5xl md:text-7xl xl:text-8xl font-bold mb-8 animate-fade-in leading-tight">
                 <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent">
                   Luxury
                 </span>
@@ -459,19 +459,19 @@ const Index = () => {
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-10 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-2xl border border-orange-500/30 flex items-center justify-center animate-float animate-code-icon">
+              <div className="absolute z-10 -top-10 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-2xl border border-orange-500/30 flex items-center justify-center animate-float animate-code-icon">
                 <Code className="w-12 h-12 text-orange-600" />
               </div>
 
               <div
-                className="absolute bg-gradient-to-br from-blue-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl border border-blue-500/30 flex items-center justify-center animate-float animate-mobile-icon"
+                className="absolute z-10 bg-gradient-to-br from-blue-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl border border-blue-500/30 flex items-center justify-center animate-float animate-mobile-icon"
                 style={{ animationDelay: "2s" }}
               >
                 <Smartphone className="w-8 h-8 text-blue-600" />
               </div>
 
               <div
-                className="absolute top-1/2 -right-12 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-full border border-orange-500/30 flex items-center justify-center animate-float animate-arrow-icon"
+                className="absolute z-10 top-1/2 -right-12 bg-gradient-to-br from-orange-500/20 to-blue-500/20 backdrop-blur-sm rounded-full border border-orange-500/30 flex items-center justify-center animate-float animate-arrow-icon"
                 style={{ animationDelay: "4s" }}
               >
                 <TrendingUp className="w-6 h-6 text-orange-600" />
