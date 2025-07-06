@@ -767,7 +767,7 @@ const Index = () => {
                     <div className="w-12 h-12 bg-gradient-to-br from-orange-400 via-orange-500 to-blue-400 rounded-xl flex items-center justify-center">
                       <MessageSquareText className="w-6 h-6 text-white" />
                     </div>
-                    <span className="text-lg">hello@wapr.agency</span>
+                    <span className="text-lg">contact@wapr.in</span>
                   </div>
                   {/* <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-400 via-orange-500 to-orange-400 rounded-xl flex items-center justify-center">
