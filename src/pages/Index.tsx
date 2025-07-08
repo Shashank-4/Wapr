@@ -404,7 +404,7 @@ const Index = () => {
               </div>
               <h1 className="text-5xl md:text-7xl xl:text-8xl font-bold mb-8 animate-fade-in leading-tight">
                 <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-blue-400 bg-clip-text text-transparent">
-                  Luxury
+                  High-End
                 </span>
                 <br />
                 <span className="text-gray-900">Digital</span>
@@ -486,10 +486,10 @@ const Index = () => {
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
               <span className="text-orange-600 font-medium">Our Expertise</span>
             </div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="headers font-bold text-gray-900 mb-6">
               Premium Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="subheaders text-gray-600 max-w-3xl mx-auto">
               Comprehensive digital solutions crafted with precision and
               elegance
             </p>
@@ -570,10 +570,10 @@ const Index = () => {
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
               <span className="text-orange-600 font-medium">Portfolio</span>
             </div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="headers font-bold text-gray-900 mb-6">
               Exceptional Projects
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="subheaders text-gray-600 max-w-3xl mx-auto">
               Showcasing our finest work and digital masterpieces
             </p>
           </div>
@@ -631,10 +631,10 @@ const Index = () => {
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full border border-orange-500/30 backdrop-blur-sm mb-6">
               <span className="text-orange-600 font-medium">Testimonials</span>
             </div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="headers font-bold text-gray-900 mb-6">
               Client Excellence
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="subheaders text-gray-600 max-w-3xl mx-auto">
               Trusted by industry leaders worldwide
             </p>
           </div>
@@ -688,11 +688,12 @@ const Index = () => {
                 Experts From Tech Giants
               </span>
             </div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">
-              Client Excellence
+            <h2 className="headers font-bold text-gray-900 mb-6">
+              Top minds from global tech giants
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Trusted by industry leaders worldwide
+            <p className="subheaders text-gray-600 max-w-3xl mx-auto">
+              Our team combines deep experience from top tech companies to
+              deliver strategies that drive real growth for your brand.
             </p>
           </div>
 
@@ -701,12 +702,12 @@ const Index = () => {
               {/* <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
               <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-gray-50 to-transparent z-10"></div> */}
 
-              <div className="flex animate-logo-scroll">
-                <div className="flex gap-x-16 justify-around items-center">
+              <div className="flex animate-logo-scroll whitespace-nowrap">
+                <div className="flex gapBtwLogos justify-around items-center">
                   {companies.map((company, index) => (
                     <div
                       key={`first-${index}`}
-                      className="flex-shrink-0 w-48 h-32 flex items-center justify-center bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-4"
+                      className="flex-shrink-0 logoSizes flex items-center justify-center bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
                     >
                       <img
                         src={company.logo}
@@ -718,11 +719,11 @@ const Index = () => {
                 </div>
 
                 {/* duplicate section to animate scorll  */}
-                <div className="flex space-x-16 min-w-full justify-around items-center px-8">
+                <div className="flex gapBtwLogos justify-around items-center">
                   {companies.map((company, index) => (
                     <div
                       key={`second-${index}`}
-                      className="flex-shrink-0 w-48 h-32 flex items-center justify-center bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-4"
+                      className="flex-shrink-0 logoSizes flex items-center justify-center bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
                     >
                       <img
                         src={company.logo}
@@ -747,10 +748,10 @@ const Index = () => {
                   Get In Touch
                 </span>
               </div>
-              <h2 className="text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="headers font-bold text-gray-900 mb-6">
                 Start Your Journey
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="subheaders text-gray-600 max-w-3xl mx-auto">
                 Ready to elevate your digital presence? Let's create something
                 extraordinary together.
               </p>
